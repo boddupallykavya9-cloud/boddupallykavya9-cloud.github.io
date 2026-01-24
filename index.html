@@ -1,0 +1,375 @@
+import React, { useState } from 'react';
+import { Github, Linkedin, Mail, Phone, ExternalLink, ChevronDown, ChevronUp, Award, Briefcase, GraduationCap, Code, BarChart3, Brain } from 'lucide-react';
+
+const Portfolio = () => {
+  const [expandedProject, setExpandedProject] = useState(null);
+
+  const projects = [
+    {
+      id: 1,
+      title: "Customer Churn Prediction",
+      category: "Machine Learning",
+      icon: <Brain className="w-6 h-6" />,
+      description: "End-to-end ML pipeline predicting customer churn with 87% accuracy",
+      technologies: ["Python", "Scikit-learn", "Pandas", "Flask"],
+      details: {
+        problem: "Built a classification model to predict customer churn for a telecom company",
+        approach: [
+          "Performed EDA and identified key churn indicators",
+          "Engineered features like customer lifetime value and engagement scores",
+          "Compared Random Forest, XGBoost, and Logistic Regression models",
+          "Deployed model as REST API using Flask"
+        ],
+        results: "Achieved 87% accuracy with F1-score of 0.84. Identified top 5 churn drivers for business action.",
+        github: "#",
+        demo: "#"
+      }
+    },
+    {
+      id: 2,
+      title: "Sales Forecasting Dashboard",
+      category: "Analytics & Visualization",
+      icon: <BarChart3 className="w-6 h-6" />,
+      description: "Interactive Power BI dashboard with predictive analytics for retail sales",
+      technologies: ["Power BI", "Python", "SQL", "Time Series"],
+      details: {
+        problem: "Created an automated forecasting system for monthly sales across 50+ stores",
+        approach: [
+          "Built ETL pipeline to process 2+ years of transaction data",
+          "Applied ARIMA and Prophet models for time series forecasting",
+          "Designed interactive dashboards with drill-down capabilities",
+          "Integrated Python visuals for advanced analytics"
+        ],
+        results: "Forecasting accuracy of 92% MAPE. Dashboard reduced reporting time by 60%.",
+        github: "#",
+        demo: "#"
+      }
+    },
+    {
+      id: 3,
+      title: "Wildfire Detection System",
+      category: "Deep Learning",
+      icon: <Brain className="w-6 h-6" />,
+      description: "CNN-based model for early wildfire detection using satellite imagery",
+      technologies: ["TensorFlow", "Python", "OpenCV", "Computer Vision"],
+      details: {
+        problem: "Developed deep learning model to detect wildfires from satellite images",
+        approach: [
+          "Preprocessed 10,000+ satellite images with data augmentation",
+          "Built and trained custom CNN architecture",
+          "Applied transfer learning with ResNet50 for improved accuracy",
+          "Implemented real-time prediction pipeline"
+        ],
+        results: "Achieved 91% accuracy with 88% recall. Model processes images in <2 seconds.",
+        github: "#",
+        demo: "#"
+      }
+    },
+    {
+      id: 4,
+      title: "Fake News Classifier",
+      category: "NLP",
+      icon: <Code className="w-6" />,
+      description: "NLP-based classification system to identify misinformation",
+      technologies: ["Python", "NLTK", "SpaCy", "BERT", "Scikit-learn"],
+      details: {
+        problem: "Built text classification model to detect fake news articles",
+        approach: [
+          "Preprocessed 20,000+ news articles with advanced NLP techniques",
+          "Implemented TF-IDF and Word2Vec embeddings",
+          "Fine-tuned BERT model for classification",
+          "Created ensemble model combining multiple approaches"
+        ],
+        results: "Final model achieved 94% accuracy with precision of 0.93.",
+        github: "#",
+        demo: "#"
+      }
+    }
+  ];
+
+  const skills = {
+    "Programming": ["Python", "SQL", "R (Basic)"],
+    "Machine Learning": ["Scikit-learn", "TensorFlow", "PyTorch (Learning)", "XGBoost"],
+    "Data Analysis": ["Pandas", "NumPy", "Statistical Analysis"],
+    "Visualization": ["Power BI", "Matplotlib", "Seaborn", "Plotly"],
+    "Tools & Platforms": ["Git", "Jupyter", "VS Code", "Excel"],
+    "Databases": ["MySQL", "PostgreSQL"]
+  };
+
+  const experience = [
+    {
+      title: "Data Analyst Intern",
+      company: "Elevate Labs",
+      period: "Oct 2025 - Dec 2025",
+      points: [
+        "Analyzed structured datasets performing data cleaning, validation, and root cause analysis",
+        "Built Power BI dashboards and KPI reports for operational insights",
+        "Communicated findings through documentation and presentations"
+      ]
+    },
+    {
+      title: "Data Analyst Intern",
+      company: "Global Next Consulting India Pvt. Ltd.",
+      period: "Aug 2025 - Oct 2025",
+      points: [
+        "Supported incident analysis and troubleshooting of data inconsistencies",
+        "Created Excel and Power BI reports identifying trends for process improvement",
+        "Collaborated with cross-functional teams on data-driven initiatives"
+      ]
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      {/* Header */}
+      <header className="bg-white shadow-sm sticky top-0 z-50">
+        <nav className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+          <h1 className="text-2xl font-bold text-slate-800">KB</h1>
+          <div className="flex gap-6">
+            <a href="#about" className="text-slate-600 hover:text-blue-600 transition">About</a>
+            <a href="#projects" className="text-slate-600 hover:text-blue-600 transition">Projects</a>
+            <a href="#skills" className="text-slate-600 hover:text-blue-600 transition">Skills</a>
+            <a href="#contact" className="text-slate-600 hover:text-blue-600 transition">Contact</a>
+          </div>
+        </nav>
+      </header>
+
+      {/* Hero Section */}
+      <section className="max-w-6xl mx-auto px-4 py-20">
+        <div className="text-center">
+          <div className="inline-block p-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mb-6">
+            <div className="bg-white rounded-full px-4 py-2">
+              <span className="text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                Open to Opportunities
+              </span>
+            </div>
+          </div>
+          <h1 className="text-5xl font-bold text-slate-900 mb-4">
+            Kavya Boddupally
+          </h1>
+          <p className="text-2xl text-slate-600 mb-6">
+            Data Scientist | ML Engineer
+          </p>
+          <p className="text-lg text-slate-500 max-w-2xl mx-auto mb-8">
+            M.Sc. Data Science graduate passionate about building ML solutions that drive business impact. 
+            Experienced in predictive modeling, data analytics, and end-to-end ML pipelines.
+          </p>
+          <div className="flex justify-center gap-4 mb-8">
+            <a href="mailto:boddupallykavya9@gmail.com" 
+               className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition flex items-center gap-2">
+              <Mail className="w-5 h-5" />
+              Get in Touch
+            </a>
+            <a href="#projects" 
+               className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition">
+              View Projects
+            </a>
+          </div>
+          <div className="flex justify-center gap-6">
+            <a href="https://linkedin.com/in/kavya-boddupally" target="_blank" rel="noopener noreferrer"
+               className="text-slate-600 hover:text-blue-600 transition">
+              <Linkedin className="w-6 h-6" />
+            </a>
+            <a href="https://github.com/boddupallykavya9-cloud" target="_blank" rel="noopener noreferrer"
+               className="text-slate-600 hover:text-blue-600 transition">
+              <Github className="w-6 h-6" />
+            </a>
+            <a href="tel:7671827933" className="text-slate-600 hover:text-blue-600 transition">
+              <Phone className="w-6 h-6" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="bg-white py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">About Me</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl">
+              <GraduationCap className="w-12 h-12 text-blue-600 mb-4" />
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">Education</h3>
+              <p className="text-slate-700 mb-2"><strong>M.Sc. Data Science</strong></p>
+              <p className="text-slate-600 text-sm">Osmania University (2023-2025)</p>
+              <p className="text-slate-700 mb-2 mt-4"><strong>B.Sc. Data Science</strong></p>
+              <p className="text-slate-600 text-sm">CGPA: 9.79/10.0</p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl">
+              <Briefcase className="w-12 h-12 text-purple-600 mb-4" />
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">Experience</h3>
+              <p className="text-slate-700">2 Data Analyst Internships</p>
+              <p className="text-slate-600 text-sm mt-2">Hands-on experience in data analysis, visualization, and reporting</p>
+              <p className="text-slate-700 mt-4">WBL Programme</p>
+              <p className="text-slate-600 text-sm">C-DAC Hyderabad (Upcoming)</p>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl">
+              <Award className="w-12 h-12 text-green-600 mb-4" />
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">Achievements</h3>
+              <p className="text-slate-700">District & State Merit Ranks</p>
+              <p className="text-slate-600 text-sm mt-2">Winner in science fairs, quizzes, and competitions</p>
+              <p className="text-slate-700 mt-4">Certifications</p>
+              <p className="text-slate-600 text-sm">AI/ML, GenAI, Python</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-16 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Featured Projects</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {projects.map(project => (
+              <div key={project.id} className="bg-white rounded-xl shadow-md hover:shadow-xl transition overflow-hidden">
+                <div className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="p-3 bg-blue-100 rounded-lg text-blue-600">
+                      {project.icon}
+                    </div>
+                    <span className="text-xs font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                      {project.category}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-semibold text-slate-900 mb-2">{project.title}</h3>
+                  <p className="text-slate-600 mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map(tech => (
+                      <span key={tech} className="text-xs bg-slate-100 text-slate-700 px-2 py-1 rounded">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <button
+                    onClick={() => setExpandedProject(expandedProject === project.id ? null : project.id)}
+                    className="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-2"
+                  >
+                    {expandedProject === project.id ? (
+                      <>Less Details <ChevronUp className="w-4 h-4" /></>
+                    ) : (
+                      <>More Details <ChevronDown className="w-4 h-4" /></>
+                    )}
+                  </button>
+                  
+                  {expandedProject === project.id && (
+                    <div className="mt-4 pt-4 border-t border-slate-200">
+                      <div className="mb-4">
+                        <h4 className="font-semibold text-slate-900 mb-2">Problem Statement</h4>
+                        <p className="text-slate-600 text-sm">{project.details.problem}</p>
+                      </div>
+                      <div className="mb-4">
+                        <h4 className="font-semibold text-slate-900 mb-2">Approach</h4>
+                        <ul className="text-slate-600 text-sm space-y-1">
+                          {project.details.approach.map((step, idx) => (
+                            <li key={idx} className="flex items-start gap-2">
+                              <span className="text-blue-600 mt-1">•</span>
+                              <span>{step}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="mb-4">
+                        <h4 className="font-semibold text-slate-900 mb-2">Results</h4>
+                        <p className="text-slate-600 text-sm">{project.details.results}</p>
+                      </div>
+                      <div className="flex gap-3">
+                        <a href={project.details.github} 
+                           className="flex items-center gap-2 text-slate-700 hover:text-blue-600 text-sm">
+                          <Github className="w-4 h-4" /> View Code
+                        </a>
+                        <a href={project.details.demo} 
+                           className="flex items-center gap-2 text-slate-700 hover:text-blue-600 text-sm">
+                          <ExternalLink className="w-4 h-4" /> Live Demo
+                        </a>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Technical Skills</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {Object.entries(skills).map(([category, items]) => (
+              <div key={category} className="bg-slate-50 p-6 rounded-xl">
+                <h3 className="text-lg font-semibold text-slate-900 mb-4">{category}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {items.map(skill => (
+                    <span key={skill} className="bg-white text-slate-700 px-3 py-1 rounded-lg text-sm border border-slate-200">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Experience</h2>
+          <div className="space-y-6">
+            {experience.map((exp, idx) => (
+              <div key={idx} className="bg-white p-6 rounded-xl shadow-md">
+                <div className="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 className="text-xl font-semibold text-slate-900">{exp.title}</h3>
+                    <p className="text-blue-600 font-medium">{exp.company}</p>
+                  </div>
+                  <span className="text-slate-500 text-sm">{exp.period}</span>
+                </div>
+                <ul className="space-y-2">
+                  {exp.points.map((point, i) => (
+                    <li key={i} className="flex items-start gap-2 text-slate-600">
+                      <span className="text-blue-600 mt-1">•</span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-16 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-4">Let's Work Together</h2>
+          <p className="text-xl mb-8 text-blue-100">
+            I'm actively seeking data scientist roles where I can apply ML and analytics to solve real-world problems.
+          </p>
+          <div className="flex flex-wrap justify-center gap-6 mb-8">
+            <a href="mailto:boddupallykavya9@gmail.com" 
+               className="flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition">
+              <Mail className="w-5 h-5" />
+              boddupallykavya9@gmail.com
+            </a>
+            <a href="tel:7671827933" 
+               className="flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition">
+              <Phone className="w-5 h-5" />
+              +91 7671827933
+            </a>
+          </div>
+          <p className="text-blue-100">Based in Hyderabad, India | Open to relocation</p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-slate-900 text-slate-400 py-8">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <p>&copy; 2026 Kavya Boddupally. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default Portfolio;
